@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MarketplaceOnly</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <p class="note">Temporary debug controls. The in-page tray replaces this in Milestone 4.</p>
+    <div id="access" hidden>
+      <p>MarketplaceOnly can't run on facebook.com yet.</p>
+      <button id="grant" type="button">Allow on facebook.com</button>
+    </div>
+    <label class="master"><input id="enabled" type="checkbox" /> MarketplaceOnly on</label>
+    <fieldset id="areas">
+      <legend>Show these areas (unchecked = hidden and redirected)</legend>
+    </fieldset>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

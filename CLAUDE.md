@@ -30,7 +30,7 @@ A Chrome + Firefox extension that makes Facebook behave like a standalone Market
 - Permissions: `storage`, `declarativeNetRequestWithHostAccess`, hosts `https://www.facebook.com/*` and `https://web.facebook.com/*` only. Every permission has a justification comment in `wxt.config.ts`. Never add `tabs`, `history`, `cookies`, or `<all_urls>`.
 - Firefox gecko id `marketplaceonly@jagie.dev` is permanent. Minimums: Chrome 120, Firefox 128.
 - Settings live in `storage.sync` (fallback `storage.local`); per-device breakage history lives in `storage.local`. Every schema change goes through `src/settings/migrate.ts` with tests.
-- `classifyRoute` (`src/routes/`) is the single source of truth for what a URL is. Network rules and the navigation watcher must both derive from `src/routes/routeMap.ts`.
+- `classifyRoute` (`src/routes/`) is the single source of truth for what a URL is. Network rules and the navigation watcher must both derive from `src/routes/routeMap.ts`, and both decide via `shouldRedirect` in `src/redirect/policy.ts`. `networkRules.test.ts` checks they agree on every URL in `src/routes/urlCases.ts`; add new URLs there.
 - Testing: Vitest for unit tests, Playwright against local HTML fixtures. **Never automate logging into Facebook. No test touches the live site.**
 
 ## Code quality

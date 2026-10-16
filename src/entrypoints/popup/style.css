@@ -1,0 +1,31 @@
+:root {
+  color-scheme: light dark;
+}
+body {
+  width: 260px;
+  margin: 12px;
+  font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+.note {
+  margin-top: 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.master {
+  display: block;
+  font-weight: 600;
+  margin: 8px 0;
+}
+fieldset {
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 6px;
+}
+fieldset label {
+  display: block;
+  padding: 2px 0;
+}
+#access {
+  padding: 8px;
+  border-radius: 6px;
+  background: color-mix(in srgb, orange 20%, transparent);
+}
