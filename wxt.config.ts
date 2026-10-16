@@ -1,8 +1,5 @@
 import { defineConfig } from 'wxt';
-
-// Only these two hosts. m.facebook.com is out of scope for v1, and we never
-// ask for <all_urls>: the extension has no business on any other site.
-const FACEBOOK_HOSTS = ['https://www.facebook.com/*', 'https://web.facebook.com/*'];
+import { FACEBOOK_MATCH_PATTERNS } from './src/routes/routeMap';
 
 export default defineConfig({
   srcDir: 'src',
@@ -23,8 +20,10 @@ export default defineConfig({
     ],
     // Host access: lets the redirect rules and the in-page cleanup run on
     // Facebook, and nowhere else. Firefox treats these as optional in MV3,
-    // so the extension asks for them on first run (Milestone 2).
-    host_permissions: FACEBOOK_HOSTS,
+    // so the extension asks for them on first run (onboarding page).
+    // Only www and web.facebook.com: m.facebook.com is out of scope for v1,
+    // and we never ask for <all_urls>.
+    host_permissions: FACEBOOK_MATCH_PATTERNS,
     ...(browser === 'firefox'
       ? {
           browser_specific_settings: {

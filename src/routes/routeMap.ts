@@ -50,6 +50,9 @@ export type RouteEntry =
 /** Facebook hosts we act on. m.facebook.com is out of scope for v1. */
 export const FACEBOOK_HOSTS: readonly string[] = ['www.facebook.com', 'web.facebook.com'];
 
+/** The same hosts as match patterns, for permissions and content scripts. */
+export const FACEBOOK_MATCH_PATTERNS: string[] = FACEBOOK_HOSTS.map((host) => `https://${host}/*`);
+
 /**
  * Order matters: earlier entries win. Safe destinations (always-allowed,
  * Messenger, Marketplace) come first so nothing can ever redirect them.
