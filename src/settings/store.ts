@@ -47,18 +47,16 @@ export async function initSettings(): Promise<Settings> {
 /**
  * Calls `onChange` whenever settings change in any part of the extension or
  * on another synced device. Returns a function that stops watching.
+ *
+ * Listens to both storage areas, registered synchronously: a sleeping
+ * background script is only woken for listeners attached right away. Only
+ * one area is ever written (sync, or local if sync is unavailable).
  */
 export function watchSettings(onChange: (settings: Settings) => void): () => void {
-  let unwatch: (() => void) | undefined;
-  let stopped = false;
-  void settingsKey().then((key) => {
-    if (stopped) return;
-    unwatch = storage.watch<unknown>(key, (raw) => onChange(migrate(raw)));
-  });
-  return () => {
-    stopped = true;
-    unwatch?.();
-  };
+  const unwatchers = [SYNC_KEY, LOCAL_FALLBACK_KEY].map((key) =>
+    storage.watch<unknown>(key, (raw) => onChange(migrate(raw))),
+  );
+  return () => unwatchers.forEach((unwatch) => unwatch());
 }
 
 export async function loadLocalState(): Promise<LocalState> {
