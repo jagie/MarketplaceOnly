@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- MarketplaceOnly icon, option B: storefront. -->
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="#12805c"/>
+  <!-- Awning with three scallops -->
+  <path d="M34 30h60a4 4 0 0 1 4 4v16a11.33 11.33 0 0 1-22.67 0a11.33 11.33 0 0 1-22.66 0a11.33 11.33 0 0 1-22.67 0V34a4 4 0 0 1 4-4Z" fill="#ffffff"/>
+  <!-- Shop front with a door -->
+  <path d="M37 66h54v28a4 4 0 0 1-4 4H41a4 4 0 0 1-4-4Z" fill="#ffffff"/>
+  <path d="M56 98V82a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v16Z" fill="#12805c"/>
+</svg>

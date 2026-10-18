@@ -12,6 +12,11 @@ export default tseslint.config(
     languageOptions: { globals: globals.browser },
   },
   {
+    // Developer tools run with Node.
+    files: ['tools/**/*.mjs'],
+    languageOptions: { globals: globals.node },
+  },
+  {
     rules: {
       // Project rule: no `any` in TypeScript.
       '@typescript-eslint/no-explicit-any': 'error',
