@@ -24,6 +24,9 @@ export default defineConfig({
     // Only www and web.facebook.com: m.facebook.com is out of scope for v1,
     // and we never ask for <all_urls>.
     host_permissions: FACEBOOK_MATCH_PATTERNS,
+    // No popup: clicking the icon toggles the in-page tray (or opens
+    // Marketplace on other sites). Settings are also on the Options page.
+    action: { default_title: 'MarketplaceOnly' },
     ...(browser === 'firefox'
       ? {
           browser_specific_settings: {

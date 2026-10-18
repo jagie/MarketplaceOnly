@@ -2,23 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>MarketplaceOnly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="manifest.open_in_tab" content="true" />
+    <title>MarketplaceOnly settings</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <p class="note">Temporary debug controls. The in-page tray replaces this in Milestone 4.</p>
-    <div id="access" hidden>
-      <p>MarketplaceOnly can't run on facebook.com yet.</p>
-      <button id="grant" type="button">Allow on facebook.com</button>
-    </div>
-    <label class="master"><input id="enabled" type="checkbox" /> MarketplaceOnly on</label>
-    <fieldset id="areas">
-      <legend>Show these areas (unchecked = hidden and redirected)</legend>
-    </fieldset>
-    <section>
-      <h2>On this tab</h2>
-      <ul id="statuses"><li>Open a Facebook tab to see what's hidden.</li></ul>
-    </section>
+    <main>
+      <h1>MarketplaceOnly</h1>
+      <p class="lede">
+        The same settings as the tray on Facebook. Changes apply to open Facebook tabs right away.
+      </p>
+
+      <div id="access" class="notice" hidden>
+        <p>MarketplaceOnly can't run on facebook.com yet.</p>
+        <button id="grant" type="button">Allow on facebook.com</button>
+      </div>
+
+      <section class="card">
+        <label class="row master"><input id="enabled" type="checkbox" /> <span>Marketplace only</span></label>
+        <fieldset id="areas">
+          <legend>Show on Facebook</legend>
+        </fieldset>
+        <label class="row"><input id="edge-tab" type="checkbox" /> <span>Show the side tab on Facebook</span></label>
+      </section>
+
+      <section class="card">
+        <h2>Status</h2>
+        <p class="hint" id="status-source">Open Facebook in a tab to see what's being hidden.</p>
+        <ul id="statuses"></ul>
+      </section>
+
+      <p class="actions">
+        <button id="reset" type="button" class="link danger">Reset to defaults</button>
+        <button id="report" type="button" class="link">Report a problem</button>
+        <span id="version" class="version"></span>
+      </p>
+      <p class="hint">Not affiliated with Meta.</p>
+    </main>
     <script type="module" src="./main.ts"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import { syncNetworkRules } from '@/background/networkRuleSync';
+import { onToolbarClick } from '@/background/toolbar';
 import { hasHostAccess } from '@/permissions/hostAccess';
 import { initSettings, loadSettings, watchSettings } from '@/settings/store';
 
@@ -19,6 +20,8 @@ export default defineBackground(() => {
       }
     });
   });
+
+  browser.action.onClicked.addListener((tab) => void onToolbarClick(tab));
 
   // Dynamic rules persist across restarts, but rebuilding is cheap and
   // guarantees they match current settings.
