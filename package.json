@@ -14,7 +14,7 @@
     "typecheck": "wxt prepare && tsc --noEmit",
     "lint": "eslint .",
     "postinstall": "wxt prepare",
-    "test:e2e": "playwright test"
+    "test:e2e": "wxt build && playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
