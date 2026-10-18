@@ -1,33 +1,11 @@
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
-import { chromium, expect, test, type BrowserContext } from '@playwright/test';
+import { expect, test, type BrowserContext } from '@playwright/test';
 import { HIDE_ATTRIBUTE } from '../../src/cleanup/stylesheet';
-
-/**
- * Runs the real built Chrome extension (npm run build first) against the
- * sanitized captures. Every request is answered locally by context.route,
- * so the extension sees facebook.com addresses but nothing reaches Facebook.
- */
-const EXTENSION = path.resolve('.output/chrome-mv3');
-const capture = (file: string) => readFileSync(`tests/fixtures/captures/${file}`, 'utf8');
+import { launchWithExtension } from './extensionContext';
 
 let context: BrowserContext;
 
 test.beforeAll(async () => {
-  context = await chromium.launchPersistentContext('', {
-    channel: 'chromium',
-    args: [`--disable-extensions-except=${EXTENSION}`, `--load-extension=${EXTENSION}`],
-  });
-  await context.route('**/*', (route) => {
-    const url = new URL(route.request().url());
-    const file = url.pathname.startsWith('/marketplace/item/') ? 'listing-chat-open.html' : 'marketplace.html';
-    let body = capture(file);
-    // Simulates Facebook redesigning its top bar: our rules can't find it.
-    if (url.pathname.includes('/redesigned/')) body = body.replace('role="banner"', 'role="none"');
-    return route.fulfill({ contentType: 'text/html', body });
-  });
-  // Wait for the background to install its rules.
-  if (context.serviceWorkers().length === 0) await context.waitForEvent('serviceworker');
+  ({ context } = await launchWithExtension());
 });
 
 test.afterAll(async () => {

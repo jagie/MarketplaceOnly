@@ -4,6 +4,18 @@ All notable changes to MarketplaceOnly are recorded here.
 
 ## [Unreleased]
 
+### Added (Milestone 4: tray)
+- In-page tray in a shadow root on `<html>`: a slim edge tab (with a dot when something is broken or new) that opens a 300px panel with the master switch, one switch per area with its status and "New" badge, "Show the side tab", Reset to defaults (with confirm), Report a problem, and the version.
+- Opens by itself only on first install, once per new breakage, and when a new setting ships; otherwise it remembers the last choice.
+- Toolbar icon toggles the tray on Facebook tabs and opens Marketplace in a new tab elsewhere (or the setup page if facebook.com access is missing).
+- Matches Facebook's light and dark mode. Keyboard accessible: switches are real buttons with `role="switch"`, focus moves into the tray when opened and back to the tab when closed, Esc closes, and typing in the tray never triggers Facebook shortcuts.
+- Report a problem opens a prefilled GitHub issue with version, browser, page type, and rules that couldn't find their target; never URLs or page content.
+- Options page (right-click the icon → Options) with the same settings and the latest tab's status; a way back in if the tray ever breaks.
+- Playwright tests driving the real tray in the built extension.
+
+### Changed (Milestone 4)
+- The debug popup became the Options page.
+
 ### Added (Milestone 3: cleanup layer)
 - Rule registry (`src/cleanup/rules.ts`): top-bar icons for Feed, Video, Groups, and Gaming; left-side shortcuts; the notifications bell, count, and pop-up.
 - Hiding by one generated stylesheet plus attributes on `<html>`. Nothing is removed from the page, and toggles apply instantly.
