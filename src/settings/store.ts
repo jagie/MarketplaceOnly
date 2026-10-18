@@ -59,6 +59,11 @@ export function watchSettings(onChange: (settings: Settings) => void): () => voi
   return () => unwatchers.forEach((unwatch) => unwatch());
 }
 
+/** Same as watchSettings, for the per-device state (breakage history). */
+export function watchLocalState(onChange: (state: LocalState) => void): () => void {
+  return storage.watch<unknown>(LOCAL_STATE_KEY, (raw) => onChange(normalizeLocalState(raw)));
+}
+
 export async function loadLocalState(): Promise<LocalState> {
   return normalizeLocalState(await storage.getItem<unknown>(LOCAL_STATE_KEY));
 }

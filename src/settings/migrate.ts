@@ -95,8 +95,12 @@ function normalize(data: RawObject, currentVersion: number): Settings {
   if (typeof data.showEdgeTab === 'boolean') showEdgeTab = data.showEdgeTab;
   else if (!('showEdgeTab' in data)) missing.push('showEdgeTab');
 
+  let justShipped = false;
   for (const id of missing) {
-    if (!seenSettings.includes(id) && !newSettings.includes(id)) newSettings.push(id);
+    if (!seenSettings.includes(id) && !newSettings.includes(id)) {
+      newSettings.push(id);
+      justShipped = true;
+    }
   }
 
   return {
@@ -104,7 +108,9 @@ function normalize(data: RawObject, currentVersion: number): Settings {
     enabled: typeof data.enabled === 'boolean' ? data.enabled : defaults.enabled,
     areas,
     showEdgeTab,
-    trayState: isTrayState(data.trayState) ? data.trayState : 'collapsed',
+    // A setting that just shipped is a reason to look: open the tray once.
+    // Closing it then sticks, because the setting is no longer missing.
+    trayState: justShipped ? 'open' : isTrayState(data.trayState) ? data.trayState : 'collapsed',
     seenSettings,
     newSettings,
   };

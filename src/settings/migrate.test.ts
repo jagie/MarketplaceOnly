@@ -67,6 +67,7 @@ describe('migrate', () => {
       expect(result.areas.gaming).toBe(false);
       expect(result.areas.groups).toBe(true); // existing choice kept
       expect(result.newSettings).toEqual(['gaming']);
+      expect(result.trayState).toBe('open');
     });
 
     it('flags a new non-area setting too', () => {
@@ -75,6 +76,10 @@ describe('migrate', () => {
       const result = migrate({ ...stored, seenSettings: AREA_IDS });
       expect(result.showEdgeTab).toBe(true);
       expect(result.newSettings).toEqual(['showEdgeTab']);
+    });
+
+    it('leaves the tray as the user left it when nothing new shipped', () => {
+      expect(migrate({ ...storedCurrent(), trayState: 'collapsed' }).trayState).toBe('collapsed');
     });
 
     it('does not flag a setting the user has already seen', () => {
