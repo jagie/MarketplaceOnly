@@ -10,7 +10,7 @@ Version tested: ______  Date: ______
 - [ ] **Chrome:** `chrome://extensions` → Developer mode → Load unpacked → `.output/chrome-mv3`. No errors on the card.
 - [ ] **Firefox:** `about:debugging#/runtime/this-firefox` → Load Temporary Add-on → `.output/firefox-mv3/manifest.json`.
 - [ ] **Firefox:** the setup page opens on its own. **Allow on facebook.com** shows Firefox's permission prompt, and accepting it shows "You're all set".
-- [ ] Both: the toolbar shows the green price tag icon.
+- [ ] Both: the toolbar shows the navy price tag icon.
 - [ ] **Fresh install only:** opening Facebook shows the tray already open (first install).
 
 ## 1. Toggle Groups off (reference story)

@@ -7,7 +7,7 @@ All notable changes to MarketplaceOnly are recorded here.
 First release. Everything below this line, from Milestones 1–5.
 
 ### Added (Milestone 5: ship prep)
-- Price tag icon set (`public/icon/`, store icon in `assets/store/`), rendered from SVG by `tools/render-icons.mjs`.
+- Navy price tag icon set (deliberately darker than Facebook's blue, so it can't be mistaken for Facebook's own icon) (`public/icon/`, store icon in `assets/store/`), rendered from SVG by `tools/render-icons.mjs`.
 - GitHub "Report a problem" issue form (`.github/ISSUE_TEMPLATE/problem.yml`); the tray's Report a problem fills in its technical fields.
 - README, PRIVACY.md (plain language: nothing collected, nothing sent), MIT LICENSE.
 - Store listing copy for the Chrome Web Store and Firefox Add-ons (`docs/store/`), including permission justifications and reviewer build notes.
