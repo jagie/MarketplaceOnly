@@ -1,7 +1,8 @@
 import type { RuleStatus } from '@/cleanup/status';
 import type { RouteClass } from '@/routes/classifyRoute';
 import { AREA_IDS, type AreaId, type LocalState, type Settings } from '@/settings/schema';
-import { CLOSE_ICON, TAG_ICON } from './icon';
+import { h } from './dom';
+import { closeIcon, tagIcon } from './icon';
 import { AREA_LABELS, STATUS_TEXT, areaStatus, needsAttention } from './model';
 import { TRAY_CSS } from './styles';
 
@@ -53,40 +54,7 @@ export class Tray {
     this.host = document.createElement(HOST_TAG);
     // "open" mode only so tests can reach in; Facebook has no reason to.
     this.shadow = this.host.attachShadow({ mode: 'open' });
-    this.shadow.innerHTML = `
-      <style>${TRAY_CSS}</style>
-      <div class="root">
-        <button class="tab" type="button" aria-expanded="false" aria-controls="mo-panel" aria-label="Open MarketplaceOnly">
-          ${TAG_ICON}<span class="dot" hidden></span>
-        </button>
-        <section class="panel" id="mo-panel" role="dialog" aria-modal="false" aria-labelledby="mo-title" hidden>
-          <header>
-            ${TAG_ICON}
-            <h2 id="mo-title">MarketplaceOnly</h2>
-            <button class="icon-button close" type="button" aria-label="Close">${CLOSE_ICON}</button>
-          </header>
-          <div class="row master">
-            <div class="text">
-              <span class="name" id="mo-master-label">Marketplace only</span>
-              <span class="status" id="mo-master-hint"></span>
-            </div>
-            <button class="switch" type="button" role="switch" aria-labelledby="mo-master-label" aria-describedby="mo-master-hint"></button>
-          </div>
-          <p class="section-label" id="mo-areas-label">Show on Facebook</p>
-          <ul class="areas" aria-labelledby="mo-areas-label"></ul>
-          <label class="option"><input type="checkbox" class="edge-tab" /> Show the side tab</label>
-          <footer>
-            <button class="link reset" type="button">Reset to defaults</button>
-            <button class="link report" type="button">Report a problem</button>
-            <span class="version">v${version}</span>
-            <div class="confirm" role="group" aria-label="Confirm reset" hidden>
-              <span>Reset all settings?</span>
-              <button class="link danger confirm-reset" type="button">Reset</button>
-              <button class="link cancel-reset" type="button">Cancel</button>
-            </div>
-          </footer>
-        </section>
-      </div>`;
+    this.shadow.append(h('style', {}, TRAY_CSS), this.buildSkeleton(version));
 
     this.tab = this.query<HTMLButtonElement>('.tab');
     this.dot = this.query('.dot');
@@ -163,6 +131,65 @@ export class Tray {
     const open = this.data?.settings.trayState !== 'open';
     this.focusOnOpen = open;
     this.actions.setOpen(open);
+  }
+
+  /** The static structure; areas are added by buildAreaRows. */
+  private buildSkeleton(version: string): HTMLElement {
+    const tab = h(
+      'button',
+      { class: 'tab', type: 'button', 'aria-expanded': 'false', 'aria-controls': 'mo-panel', 'aria-label': 'Open MarketplaceOnly' },
+      tagIcon(),
+      h('span', { class: 'dot', hidden: true }),
+    );
+    const header = h(
+      'header',
+      {},
+      tagIcon(),
+      h('h2', { id: 'mo-title' }, 'MarketplaceOnly'),
+      h('button', { class: 'icon-button close', type: 'button', 'aria-label': 'Close' }, closeIcon()),
+    );
+    const master = h(
+      'div',
+      { class: 'row master' },
+      h(
+        'div',
+        { class: 'text' },
+        h('span', { class: 'name', id: 'mo-master-label' }, 'Marketplace only'),
+        h('span', { class: 'status', id: 'mo-master-hint' }),
+      ),
+      h('button', {
+        class: 'switch',
+        type: 'button',
+        role: 'switch',
+        'aria-labelledby': 'mo-master-label',
+        'aria-describedby': 'mo-master-hint',
+      }),
+    );
+    const footer = h(
+      'footer',
+      {},
+      h('button', { class: 'link reset', type: 'button' }, 'Reset to defaults'),
+      h('button', { class: 'link report', type: 'button' }, 'Report a problem'),
+      h('span', { class: 'version' }, `v${version}`),
+      h(
+        'div',
+        { class: 'confirm', role: 'group', 'aria-label': 'Confirm reset', hidden: true },
+        h('span', {}, 'Reset all settings?'),
+        h('button', { class: 'link danger confirm-reset', type: 'button' }, 'Reset'),
+        h('button', { class: 'link cancel-reset', type: 'button' }, 'Cancel'),
+      ),
+    );
+    const panel = h(
+      'section',
+      { class: 'panel', id: 'mo-panel', role: 'dialog', 'aria-modal': 'false', 'aria-labelledby': 'mo-title', hidden: true },
+      header,
+      master,
+      h('p', { class: 'section-label', id: 'mo-areas-label' }, 'Show on Facebook'),
+      h('ul', { class: 'areas', 'aria-labelledby': 'mo-areas-label' }),
+      h('label', { class: 'option' }, h('input', { type: 'checkbox', class: 'edge-tab' }), ' Show the side tab'),
+      footer,
+    );
+    return h('div', { class: 'root' }, tab, panel);
   }
 
   private buildAreaRows(): void {
