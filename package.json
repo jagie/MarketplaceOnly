@@ -2,7 +2,7 @@
   "name": "marketplaceonly",
   "description": "Make Facebook show only Marketplace (and Messenger). Not affiliated with Meta.",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev:chrome": "wxt",
@@ -14,7 +14,9 @@
     "typecheck": "wxt prepare && tsc --noEmit",
     "lint": "eslint .",
     "postinstall": "wxt prepare",
-    "test:e2e": "wxt build && playwright test"
+    "test:e2e": "wxt build && playwright test",
+    "build:chrome": "wxt build",
+    "build:firefox": "wxt build -b firefox --mv3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -26,5 +28,6 @@
     "typescript-eslint": "^8.71.2",
     "vitest": "^5.0.4",
     "wxt": "^0.21.4"
-  }
+  },
+  "license": "MIT"
 }

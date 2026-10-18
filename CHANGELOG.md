@@ -2,7 +2,17 @@
 
 All notable changes to MarketplaceOnly are recorded here.
 
-## [Unreleased]
+## [1.0.0] - not yet published
+
+First release. Everything below this line, from Milestones 1–5.
+
+### Added (Milestone 5: ship prep)
+- Price tag icon set (`public/icon/`, store icon in `assets/store/`), rendered from SVG by `tools/render-icons.mjs`.
+- GitHub "Report a problem" issue form (`.github/ISSUE_TEMPLATE/problem.yml`); the tray's Report a problem fills in its technical fields.
+- README, PRIVACY.md (plain language: nothing collected, nothing sent), MIT LICENSE.
+- Store listing copy for the Chrome Web Store and Firefox Add-ons (`docs/store/`), including permission justifications and reviewer build notes.
+- Manual test checklist covering every user story (`docs/manual-test-checklist.md`).
+- `build:chrome` and `build:firefox` scripts; the Firefox source package rebuilds to an identical add-on.
 
 ### Added (Milestone 4: tray)
 - In-page tray in a shadow root on `<html>`: a slim edge tab (with a dot when something is broken or new) that opens a 300px panel with the master switch, one switch per area with its status and "New" badge, "Show the side tab", Reset to defaults (with confirm), Report a problem, and the version.
