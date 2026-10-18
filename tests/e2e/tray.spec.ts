@@ -135,10 +135,10 @@ test('report opens a prefilled GitHub issue with no personal data', async () => 
   ]);
   const url = new URL(issue.url());
   expect(url.origin + url.pathname).toBe('https://github.com/jagie/MarketplaceOnly/issues/new');
-  const body = url.searchParams.get('body') ?? '';
-  expect(body).toContain('Page type: Marketplace');
-  expect(body).toMatch(/Browser: Chrome/);
-  expect(body).not.toContain('facebook.com');
+  expect(url.searchParams.get('template')).toBe('problem.yml');
+  expect(url.searchParams.get('page_type')).toBe('Marketplace');
+  expect(url.searchParams.get('browser')).toMatch(/^Chrome /);
+  expect(url.search).not.toContain('facebook.com');
 });
 
 test('follows Facebook dark mode', async () => {
