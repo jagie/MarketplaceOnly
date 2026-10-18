@@ -18,8 +18,36 @@ type RawObject = Record<string, unknown>;
  */
 export type MigrationStep = (raw: RawObject) => RawObject;
 
-/** Keyed by the version the step upgrades *from*. Empty until v2 ships. */
-export const MIGRATIONS: Readonly<Record<number, MigrationStep>> = {};
+/** Keyed by the version the step upgrades *from*. */
+export const MIGRATIONS: Readonly<Record<number, MigrationStep>> = {
+  1: mergeReelsAndWatchIntoVideo,
+};
+
+/**
+ * v1 -> v2: Facebook opens Watch links in the Reels player, so the separate
+ * "reels" and "watch" switches became one "video" switch. If the user had
+ * turned either one on, they wanted video, so the merged switch starts on.
+ */
+function mergeReelsAndWatchIntoVideo(raw: RawObject): RawObject {
+  const renameIds = (ids: unknown): unknown =>
+    Array.isArray(ids) ? ids.map((id) => (id === 'reels' || id === 'watch' ? 'video' : id)) : ids;
+
+  const next: RawObject = {
+    ...raw,
+    seenSettings: renameIds(raw.seenSettings),
+    newSettings: renameIds(raw.newSettings),
+  };
+  if (isObject(raw.areas)) {
+    const { reels, watch, ...otherAreas } = raw.areas;
+    // Only set video if v1 actually stored a choice; otherwise leave it
+    // missing so it gets its default like any new setting.
+    next.areas =
+      reels === undefined && watch === undefined
+        ? otherAreas
+        : { ...otherAreas, video: reels === true || watch === true };
+  }
+  return next;
+}
 
 /**
  * Turns whatever is in storage into valid, current Settings.

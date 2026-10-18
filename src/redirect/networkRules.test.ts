@@ -43,10 +43,10 @@ describe('buildNetworkRules', () => {
     }
   });
 
-  it('agrees with the classifier with only Groups and Reels off', () => {
+  it('agrees with the classifier with only Groups and Video off', () => {
     const settings = settingsWithAll(true);
     settings.areas.groups = false;
-    settings.areas.reels = false;
+    settings.areas.video = false;
     const rules = buildNetworkRules(settings);
     for (const url of ALL_URLS) {
       if (WATCHER_ONLY.has(url)) continue;

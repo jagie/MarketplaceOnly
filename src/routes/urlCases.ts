@@ -18,16 +18,16 @@ export const URL_CASES: Record<string, ReadonlyArray<readonly [string, RouteClas
     [`${FB}/stories/123456/`, 'feed'],
     [`${FB}/#notifications`, 'feed'],
   ],
-  'reels': [
-    [`${FB}/reel/123456789`, 'reels'],
-    [`${FB}/reel/123456789/?s=ifu`, 'reels'],
-    [`${FB}/reels/`, 'reels'],
-    [`${FB}/reels/create`, 'reels'],
+  'video: reels': [
+    [`${FB}/reel/123456789`, 'video'],
+    [`${FB}/reel/123456789/?s=ifu`, 'video'],
+    [`${FB}/reels/`, 'video'],
+    [`${FB}/reels/create`, 'video'],
   ],
-  'watch': [
-    [`${FB}/watch`, 'watch'],
-    [`${FB}/watch/`, 'watch'],
-    [`${FB}/watch/live/`, 'watch'],
+  'video: watch': [
+    [`${FB}/watch`, 'video'],
+    [`${FB}/watch/`, 'video'],
+    [`${FB}/watch/live/`, 'video'],
     // One shared video stays reachable.
     [`${FB}/watch/?v=123456`, 'other'],
     [`${FB}/watch/live/?v=123456&ref=share`, 'other'],

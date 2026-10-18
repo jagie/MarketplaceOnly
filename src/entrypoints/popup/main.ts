@@ -5,8 +5,7 @@ import { loadSettings, updateSettings, watchSettings } from '@/settings/store';
 /** Temporary labels; the tray (Milestone 4) gets the real ones. */
 const AREA_LABELS: Record<AreaId, string> = {
   feed: 'Feed',
-  reels: 'Reels',
-  watch: 'Watch',
+  video: 'Video (Reels & Watch)',
   groups: 'Groups',
   gaming: 'Gaming',
   notifications: 'Notifications',

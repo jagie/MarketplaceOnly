@@ -4,7 +4,11 @@ All notable changes to MarketplaceOnly are recorded here.
 
 ## [Unreleased]
 
+### Changed
+- Reels and Watch are now one "Video" switch. Facebook opens Watch links in the Reels player, so two switches couldn't work independently. Settings migrate automatically (schema v2): if either was on, Video starts on.
+
 ### Added
+- Developer tool `tools/capture-page-structure.js` that captures a privacy-safe skeleton of a Facebook page for building test fixtures, with a Playwright test proving it strips personal data (`npm run test:e2e`).
 - Milestone 2: redirect backbone.
   - Network rules redirect full page loads of switched-off areas to `/marketplace/` (same host). Rules are generated from the route map and rebuilt whenever settings change.
   - In-app navigation watcher: a page-world hook on `pushState`/`replaceState` plus `popstate` redirects with `location.replace`, capped at 3 redirects per tab per 10 seconds.

@@ -1,6 +1,6 @@
 import { AREA_IDS, SETTING_IDS, type AreaId, type LocalState, type Settings } from './schema';
 
-export const CURRENT_SCHEMA_VERSION = 1;
+export const CURRENT_SCHEMA_VERSION = 2;
 
 /** Opinionated default: every distraction area is off. */
 export const DEFAULT_AREA_VALUE: Record<AreaId, boolean> = Object.fromEntries(

@@ -17,7 +17,7 @@ const NEVER_REDIRECTED: RouteClass[] = [
 describe('shouldRedirect', () => {
   it('redirects every area that is off by default', () => {
     const settings = defaultSettings();
-    for (const area of ['feed', 'reels', 'watch', 'groups', 'gaming', 'notifications'] as const) {
+    for (const area of ['feed', 'video', 'groups', 'gaming', 'notifications'] as const) {
       expect(shouldRedirect(area, settings)).toBe(true);
     }
   });
@@ -26,7 +26,7 @@ describe('shouldRedirect', () => {
     const settings = defaultSettings();
     settings.areas.groups = true;
     expect(shouldRedirect('groups', settings)).toBe(false);
-    expect(shouldRedirect('reels', settings)).toBe(true);
+    expect(shouldRedirect('video', settings)).toBe(true);
   });
 
   it('never redirects anything when the master switch is off', () => {

@@ -4,8 +4,11 @@
  *
  * Adding an id here is all it takes to ship a new toggle: migration gives
  * existing users its default and flags it as "new" in the tray.
+ *
+ * "video" covers Reels and Watch together: Facebook now opens Watch links
+ * in the Reels player, so separate switches couldn't work independently.
  */
-export const AREA_IDS = ['feed', 'reels', 'watch', 'groups', 'gaming', 'notifications'] as const;
+export const AREA_IDS = ['feed', 'video', 'groups', 'gaming', 'notifications'] as const;
 export type AreaId = (typeof AREA_IDS)[number];
 
 /** Every user-facing setting the tray can flag as "new". */

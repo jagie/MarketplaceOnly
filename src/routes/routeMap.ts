@@ -133,13 +133,15 @@ export const ROUTE_MAP: readonly RouteEntry[] = [
     prefixes: [['stories']], // verified
   },
   {
+    // Reels and Watch are one area: Facebook opens Watch links in the Reels
+    // player (/reel/<id>), confirmed by hand in Oct 2026.
     kind: 'toggleable-area',
-    id: 'reels',
+    id: 'video',
     prefixes: [['reel'], ['reels']], // verified
   },
   {
     kind: 'toggleable-area',
-    id: 'watch',
+    id: 'video',
     prefixes: [['watch']], // verified
     // /watch/?v=123 is one video someone shared, often in a chat. Leave it
     // reachable rather than make a shared link feel broken.
