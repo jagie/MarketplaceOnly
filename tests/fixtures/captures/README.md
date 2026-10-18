@@ -5,4 +5,6 @@ Sanitized skeletons of real Facebook pages, made with
 They contain no names, text, IDs, or images, only layout, roles, and link
 shapes. Milestone 3's test fixtures are built from them.
 
-File names: `mo-capture-<page type>-<timestamp>.html`.
+Captured October 2026 (Chrome, light mode). Renamed by what they show:
+`marketplace`, `marketplace-notifications-open`, `listing`,
+`listing-chat-open`, `feed`, `profile`.
