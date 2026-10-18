@@ -29,3 +29,23 @@ fieldset label {
   border-radius: 6px;
   background: color-mix(in srgb, orange 20%, transparent);
 }
+h2 {
+  font-size: 13px;
+  margin: 12px 0 4px;
+}
+#statuses {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+#statuses li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 0;
+}
+.status-not-found {
+  color: #c62828;
+  font-weight: 600;
+}

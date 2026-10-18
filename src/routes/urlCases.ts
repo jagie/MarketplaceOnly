@@ -126,6 +126,7 @@ export const URL_CASES: Record<string, ReadonlyArray<readonly [string, RouteClas
     [`${FB}/bookmarks/`, 'other'],
     [`${FB}/saved/`, 'other'],
     [`${FB}/games/`, 'other'],
+    [`${FB}/fb-answers/video-and-reels-difference/`, 'other'],
     [`${FB}/somescript.php`, 'other'],
     [`${FB}/%E0%A4%A`, 'other'],
   ],

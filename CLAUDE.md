@@ -31,7 +31,8 @@ A Chrome + Firefox extension that makes Facebook behave like a standalone Market
 - Firefox gecko id `marketplaceonly@jagie.dev` is permanent. Minimums: Chrome 120, Firefox 128.
 - Settings live in `storage.sync` (fallback `storage.local`); per-device breakage history lives in `storage.local`. Every schema change goes through `src/settings/migrate.ts` with tests.
 - `classifyRoute` (`src/routes/`) is the single source of truth for what a URL is. Network rules and the navigation watcher must both derive from `src/routes/routeMap.ts`, and both decide via `shouldRedirect` in `src/redirect/policy.ts`. `networkRules.test.ts` checks they agree on every URL in `src/routes/urlCases.ts`; add new URLs there.
-- Testing: Vitest for unit tests, Playwright against local HTML fixtures. **Never automate logging into Facebook. No test touches the live site.**
+- Cleanup rules live only in `src/cleanup/rules.ts`. Link selectors are generated from the route map (`linkSelectors.ts`); guards are applied to every rule in `stylesheet.ts`. Fixtures are sanitized captures in `tests/fixtures/captures/` (made with `tools/capture-page-structure.js`); fix a rule by adding or refreshing a capture and a test.
+- Testing: Vitest for unit tests (`npm run test`), Playwright against local HTML fixtures (`npm run test:e2e`, which builds first). **Never automate logging into Facebook. No test touches the live site.**
 
 ## Code quality
 - Small files, clear names, comments that explain *why*.

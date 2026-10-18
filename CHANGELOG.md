@@ -4,6 +4,15 @@ All notable changes to MarketplaceOnly are recorded here.
 
 ## [Unreleased]
 
+### Added (Milestone 3: cleanup layer)
+- Rule registry (`src/cleanup/rules.ts`): top-bar icons for Feed, Video, Groups, and Gaming; left-side shortcuts; the notifications bell, count, and pop-up.
+- Hiding by one generated stylesheet plus attributes on `<html>`. Nothing is removed from the page, and toggles apply instantly.
+- Guardrails in the stylesheet itself: nothing inside the main content, and nothing containing Marketplace links, Messenger, search, or Message Seller/Send, is ever hidden.
+- Status per rule (Hidden, Not on this page, Couldn't find it, Off) and per-device breakage history; a rule only counts as broken after 3 page loads in a row. Top-bar rules don't alarm when someone's top bar simply lacks an icon.
+- Debug popup shows each rule's status for the current tab.
+- Playwright tests against sanitized captures of real pages (every settings combination), plus end-to-end tests running the built extension against them.
+- `/fb-answers/` pages are recognized as a Facebook section, not a profile.
+
 ### Changed
 - Reels and Watch are now one "Video" switch. Facebook opens Watch links in the Reels player, so two switches couldn't work independently. Settings migrate automatically (schema v2): if either was on, Video starts on.
 

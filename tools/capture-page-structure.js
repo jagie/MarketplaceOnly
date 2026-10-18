@@ -153,8 +153,9 @@
   }
 
   function pageType() {
-    const first = location.pathname.split('/').filter(Boolean)[0] || 'root';
+    const first = location.pathname.split('/').filter(Boolean)[0] || 'feed';
     const second = location.pathname.split('/').filter(Boolean)[1] || '';
+    if (first === 'feed' || first === 'home.php') return 'feed';
     if (first === 'marketplace') return second === 'item' ? 'marketplace-item' : 'marketplace';
     if (KNOWN_SEGMENTS.has(first)) return first.replace(/\W/g, '');
     return 'profile-or-page';

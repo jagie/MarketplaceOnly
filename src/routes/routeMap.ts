@@ -198,6 +198,7 @@ export const RESERVED_FIRST_SEGMENTS: ReadonlySet<string> = new Set([
   'photo.php',
   'video.php',
   'sharer.php',
+  'fb-answers', // AI-written answer pages, e.g. /fb-answers/<topic>/
 ]);
 
 /** Paths that are always a profile or Page, whatever follows. */
