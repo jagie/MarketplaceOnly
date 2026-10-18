@@ -30,7 +30,11 @@ export class PageCleanup {
   private probeTimer: ReturnType<typeof setTimeout> | undefined;
   private readonly observer: MutationObserver;
 
-  constructor(settings: Settings) {
+  constructor(
+    settings: Settings,
+    /** Called when any rule's status changes (the tray shows them). */
+    private readonly onStatusChange: () => void = () => {},
+  ) {
     this.settings = settings;
     this.route = classifyRoute(location.href);
     this.observer = new MutationObserver((mutations) => this.onMutations(mutations));
@@ -121,6 +125,7 @@ export class PageCleanup {
   }
 
   private probe(): void {
+    const before = JSON.stringify(this.statuses);
     for (const rule of RULES) {
       const matched = document.querySelector(RULE_SELECTORS.get(rule.id) ?? '') !== null;
       if (matched) this.seenThisPage.add(rule.id);
@@ -130,6 +135,7 @@ export class PageCleanup {
       };
       this.statuses[rule.id] = ruleStatus(rule, this.settings, this.route, probe);
     }
+    if (JSON.stringify(this.statuses) !== before) this.onStatusChange();
   }
 
   /** Once per page view, after it settles: update per-device breakage history. */
