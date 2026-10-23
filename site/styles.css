@@ -47,7 +47,7 @@ img { max-width: 100%; height: auto; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 800; font-size: 18px; }
 .brand img { width: 32px; height: 32px; }
 .site-header nav { display: flex; gap: 20px; font-size: 15px; }
-.site-header nav a { color: var(--muted); text-decoration: none; }
+.site-header nav a { color: var(--muted); text-decoration: none; white-space: nowrap; }
 .site-header nav a:hover { color: var(--text); }
 
 /* Hero */
@@ -140,8 +140,10 @@ details p { margin: 10px 0 0; color: var(--muted); }
   .grid, .split { grid-template-columns: 1fr; }
   .privacy-points { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .site-header nav { display: none; }
+}
+@media (max-width: 480px) {
   section { padding: 56px 0; }
   .privacy-points { grid-template-columns: 1fr; }
 }
