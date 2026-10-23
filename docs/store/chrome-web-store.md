@@ -4,10 +4,12 @@ Copy each field into the Chrome Web Store Developer Dashboard.
 
 ## Store listing
 
-**Name** (75 max)
-> MarketplaceOnly
+**Name** (75 max). Comes from the package (`wxt.config.ts`); the dashboard shows it read-only.
+> MarketplaceOnly: Marketplace, Hide Feed & Reels
 
-**Summary** (132 max)
+Store search treats "MarketplaceOnly" as one word, so the tagline repeats "Marketplace" on its own.
+
+**Summary** (132 max). Also from the package: the manifest `description`, shown under the name in search results.
 > Use Facebook just for Marketplace. Hides the Feed, Reels, Groups, Gaming, and notifications, and lands you on Marketplace.
 
 **Description**
@@ -37,6 +39,10 @@ Copy each field into the Chrome Web Store Developer Dashboard.
 
 **Icon:** `assets/store/icon-128.png` (128×128 with transparent padding, as the store requires)
 
+**Small promo tile** (440×280, shown as the big card in search results): `assets/store/promo-small-440x280.png`
+**Marquee promo tile** (1400×560, used if Chrome features the extension): `assets/store/promo-marquee-1400x560.png`
+Regenerate both with `node tools/render-promo.mjs`.
+
 **Screenshots** (at least 1, up to 5; 1280×800 or 640×400). Take these yourself on real Facebook; see the tips in the manual test checklist. Suggested:
 1. Marketplace with the tray open (top bar cleaned up)
 2. The tray close up, showing switches and statuses
@@ -64,4 +70,4 @@ Copy each field into the Chrome Web Store Developer Dashboard.
 
 ## Package
 
-Upload `.output/marketplaceonly-1.0.0-chrome.zip` (made by `npm run zip`).
+Upload `.output/marketplaceonly-<version>-chrome.zip` (made by `npm run zip`).

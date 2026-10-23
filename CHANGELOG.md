@@ -2,7 +2,16 @@
 
 All notable changes to MarketplaceOnly are recorded here.
 
-## [1.0.0] - not yet published
+## [1.0.1] - 2026-10-23
+
+### Changed
+- Store name is now "MarketplaceOnly: Marketplace, Hide Feed & Reels". Store search treated "MarketplaceOnly" as one word, so "marketplace" searches missed it. The toolbar still shows the short name, MarketplaceOnly.
+- The description shown in store search results now lists what it hides.
+
+### Added
+- Store promo images (440×280 search tile and 1400×560 marquee) showing the tray, rendered by `tools/render-promo.mjs`.
+
+## [1.0.0] - 2026-10-22 (Chrome Web Store)
 
 First release. Everything below this line, from Milestones 1–5.
 

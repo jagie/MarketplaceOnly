@@ -6,13 +6,13 @@ Copy each field into addons.mozilla.org → Submit a New Add-on.
 
 - **Distribution:** On this site
 - **Platform:** Firefox for desktop (Android is out of scope for v1)
-- **Package:** `.output/marketplaceonly-1.0.0-firefox.zip`
-- **Source code:** Yes. Upload `.output/marketplaceonly-1.0.0-sources.zip`. The code is bundled and minified, so AMO requires the source.
+- **Package:** `.output/marketplaceonly-<version>-firefox.zip`
+- **Source code:** Yes. Upload `.output/marketplaceonly-<version>-sources.zip`. The code is bundled and minified, so AMO requires the source.
 
 ## Listing
 
-**Name**
-> MarketplaceOnly
+**Name** (50 max). Type this into the listing; the package itself says just "MarketplaceOnly" because Firefox caps manifest names at 45 characters.
+> MarketplaceOnly: Marketplace, Hide Feed & Reels
 
 **Add-on URL**
 > marketplaceonly

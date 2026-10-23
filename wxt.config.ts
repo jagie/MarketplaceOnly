@@ -3,10 +3,21 @@ import { FACEBOOK_MATCH_PATTERNS } from './src/routes/routeMap';
 
 export default defineConfig({
   srcDir: 'src',
+  zip: {
+    // Store artwork isn't needed to build; keep the reviewer source package small.
+    excludeSources: ['assets/store/**', 'assets/icon-candidates/**'],
+  },
   manifest: ({ browser }) => ({
-    name: 'MarketplaceOnly',
+    // Store search treats "MarketplaceOnly" as one word, so the Chrome name
+    // repeats "Marketplace" on its own plus the words people search for.
+    // Firefox caps manifest names at 45 characters; there the full name is
+    // typed into the Add-ons listing instead (which allows 50).
+    name: browser === 'firefox' ? 'MarketplaceOnly' : 'MarketplaceOnly: Marketplace, Hide Feed & Reels',
+    // Toolbar, menus, and other tight spaces use the short name.
+    short_name: 'MarketplaceOnly',
+    // Shown under the name in Chrome Web Store search results. Max 132 characters.
     description:
-      'Make Facebook show only Marketplace and Messenger. Not affiliated with Meta.',
+      'Use Facebook just for Marketplace. Hides the Feed, Reels, Groups, Gaming, and notifications, and lands you on Marketplace.',
     permissions: [
       // storage: saves the user's toggles (synced across their devices) and
       // per-device breakage history. Nothing is sent anywhere.
