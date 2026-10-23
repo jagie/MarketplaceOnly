@@ -26,7 +26,7 @@ Post at https://news.ycombinator.com/submit. Weekday mornings (US Eastern) tend 
 >
 > Full disclosure: I'm a product leader, not a full-time engineer, and I built this with Claude Code, working milestone by milestone from a written spec. That's in the repo too (docs/prompts). Tests run against sanitized captures of real Facebook pages, since nothing is allowed to log in to the live site.
 >
-> Chrome: <CHROME_STORE_URL>
+> Chrome: https://chromewebstore.google.com/detail/marketplaceonly/fgdfomakocapejmihcefffoaidmafbgp
 > Firefox: <FIREFOX_ADDONS_URL>
 >
 > Happy to answer questions, and I'd love to hear where it breaks.

@@ -20,7 +20,7 @@ MarketplaceOnly has no server, no analytics, no accounts, and no remote code. Yo
 
 ## Install
 
-- **Chrome:** Chrome Web Store (link coming soon)
+- **Chrome:** [Chrome Web Store](https://chromewebstore.google.com/detail/marketplaceonly/fgdfomakocapejmihcefffoaidmafbgp)
 - **Firefox:** Firefox Add-ons (link coming soon)
 
 ## Report a problem

@@ -31,7 +31,7 @@
 >
 > It collects no data and has no server; the code is open source.
 >
-> Chrome: <CHROME_STORE_URL>
+> Chrome: https://chromewebstore.google.com/detail/marketplaceonly/fgdfomakocapejmihcefffoaidmafbgp
 > Firefox: <FIREFOX_ADDONS_URL>
 > Website: https://jagie.github.io/MarketplaceOnly/
 >

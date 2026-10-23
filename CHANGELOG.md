@@ -7,6 +7,7 @@ All notable changes to MarketplaceOnly are recorded here.
 ### Added
 - Website (`site/`), published to GitHub Pages by `.github/workflows/pages.yml`: a one-page overview plus a privacy page. No web fonts, scripts, or tracking.
 - Launch post drafts for Show HN, Reddit, and Product Hunt (`docs/launch/`).
+- Chrome Web Store link on the website, README, and launch posts.
 
 ## [1.0.1] - 2026-10-23
 

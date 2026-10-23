@@ -13,7 +13,7 @@ Launch at https://www.producthunt.com/posts/new. Launches reset at 12:01 a.m. Pa
 
 **Topics:** Chrome Extensions, Productivity, Privacy, Open Source
 
-**Links:** website https://jagie.github.io/MarketplaceOnly/, Chrome <CHROME_STORE_URL>, Firefox <FIREFOX_ADDONS_URL>
+**Links:** website https://jagie.github.io/MarketplaceOnly/, Chrome https://chromewebstore.google.com/detail/marketplaceonly/fgdfomakocapejmihcefffoaidmafbgp, Firefox <FIREFOX_ADDONS_URL>
 
 **Gallery** (1270×760 recommended): the marquee image (`assets/store/promo-marquee-1400x560.png`) and your store screenshots.
 
