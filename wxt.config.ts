@@ -5,7 +5,7 @@ export default defineConfig({
   srcDir: 'src',
   zip: {
     // Store artwork isn't needed to build; keep the reviewer source package small.
-    excludeSources: ['assets/store/**', 'assets/icon-candidates/**'],
+    excludeSources: ['assets/store/**', 'assets/icon-candidates/**', 'site/**'],
   },
   manifest: ({ browser }) => ({
     // Store search treats "MarketplaceOnly" as one word, so the Chrome name

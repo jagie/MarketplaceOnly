@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MarketplaceOnly: use Facebook just for Marketplace</title>
+    <meta
+      name="description"
+      content="A free browser extension for Chrome and Firefox that makes Facebook a Marketplace-only app. Hides the Feed, Reels, Groups, Gaming, and notifications. Messenger always works. No data collected."
+    />
+    <meta property="og:title" content="MarketplaceOnly: Facebook, just Marketplace" />
+    <meta
+      property="og:description"
+      content="Free extension for Chrome and Firefox. Lands you on Marketplace and hides the Feed, Reels, Groups, Gaming, and notifications."
+    />
+    <meta property="og:image" content="https://jagie.github.io/MarketplaceOnly/assets/promo-marquee-1400x560.png" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./"><img src="assets/icon-128.png" alt="" width="32" height="32" />MarketplaceOnly</a>
+        <nav aria-label="Main">
+          <a href="#how">How it works</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://github.com/jagie/MarketplaceOnly">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="wrap">
+          <div>
+            <h1>Facebook, just Marketplace.</h1>
+            <p class="lede">
+              A free browser extension that turns Facebook into a standalone Marketplace app. No feed, no Reels,
+              no endless scrolling. Just buying and selling.
+            </p>
+            <div class="buttons">
+              <!-- Store links: update CHROME after approval if the address changes. -->
+              <a class="button" href="https://chromewebstore.google.com/search/MarketplaceOnly">Add to Chrome</a>
+              <a class="button secondary" href="https://addons.mozilla.org/firefox/addon/marketplaceonly/">Add to Firefox</a>
+            </div>
+            <p class="fine">Free · Open source · Collects no data · Not affiliated with Meta</p>
+          </div>
+
+          <div class="tray" role="img" aria-label="The MarketplaceOnly tray, with a switch for each area of Facebook">
+            <div class="head"><img src="assets/icon.svg" alt="" /><span>MarketplaceOnly</span>✕</div>
+            <div class="row master"><div><b>Marketplace only</b><small>On</small></div><i class="sw on"></i></div>
+            <div class="label">Show on Facebook</div>
+            <div class="row"><div><b>Feed</b><small>Hidden</small></div><i class="sw"></i></div>
+            <div class="row"><div><b>Video (Reels &amp; Watch)</b><small>Hidden</small></div><i class="sw"></i></div>
+            <div class="row"><div><b>Groups</b><small>Hidden</small></div><i class="sw"></i></div>
+            <div class="row"><div><b>Gaming</b><small>Hidden</small></div><i class="sw"></i></div>
+            <div class="row"><div><b>Notifications</b><small>Hidden</small></div><i class="sw"></i></div>
+            <div class="foot"><span>Reset to defaults</span><span>Report a problem</span></div>
+          </div>
+        </div>
+      </div>
+
+      <section id="how">
+        <div class="wrap">
+          <h2>How it works</h2>
+          <p class="section-lede">
+            Lots of people only open Facebook to buy or sell, and every visit starts in a feed built to keep them
+            scrolling. MarketplaceOnly skips all that.
+          </p>
+          <div class="grid">
+            <div class="card">
+              <span class="num">1</span>
+              <h3>Land on Marketplace</h3>
+              <p>Opening Facebook takes you straight to Marketplace. Links to the Feed, Reels, or Groups do too.</p>
+            </div>
+            <div class="card">
+              <span class="num">2</span>
+              <h3>Hide the distractions</h3>
+              <p>The Home, Reels, Groups, and Gaming icons disappear, and so does the notifications bell.</p>
+            </div>
+            <div class="card">
+              <span class="num">3</span>
+              <h3>Stay in control</h3>
+              <p>A small tray on the edge of Facebook switches any area back on instantly. One switch pauses everything.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="alt">
+        <div class="wrap">
+          <h2>Everything you need to buy and sell stays</h2>
+          <p class="section-lede">MarketplaceOnly never touches the parts of Facebook that make a deal happen.</p>
+          <div class="split">
+            <div class="card">
+              <h3>Always works</h3>
+              <ul class="list keep">
+                <li>Marketplace listings, search, and categories</li>
+                <li>Message Seller and Messenger chats</li>
+                <li>Seller profiles, so you can check who you're meeting</li>
+                <li>Login, security, and account settings</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Hidden until you want it</h3>
+              <ul class="list hide">
+                <li>News Feed and Stories</li>
+                <li>Reels and video</li>
+                <li>Groups</li>
+                <li>Gaming</li>
+                <li>Notifications bell and count</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy">
+        <div class="wrap">
+          <h2>Private by design</h2>
+          <p class="section-lede">
+            MarketplaceOnly doesn't collect anything, and it has no server to send it to. Your settings stay in your
+            browser.
+          </p>
+          <ul class="privacy-points">
+            <li>No accounts</li>
+            <li>No analytics</li>
+            <li>No tracking</li>
+            <li>No remote code</li>
+          </ul>
+          <p>
+            It runs only on facebook.com, and the code is open for anyone to check.
+            <a href="privacy.html">Read the privacy policy</a>.
+          </p>
+        </div>
+      </section>
+
+      <section id="faq" class="alt">
+        <div class="wrap">
+          <h2>Questions</h2>
+          <details>
+            <summary>Is it free?</summary>
+            <p>Yes, completely. It's open source under the MIT license, with no ads, upgrades, or subscriptions.</p>
+          </details>
+          <details>
+            <summary>Can I still see my feed or groups sometimes?</summary>
+            <p>
+              Yes. Click the tab on the right edge of Facebook (or the toolbar icon) and switch any area back on. It
+              takes effect immediately, no reload needed.
+            </p>
+          </details>
+          <details>
+            <summary>Does it work on my phone?</summary>
+            <p>
+              Not yet. It works in Chrome and Firefox on a computer. The Facebook app and the mobile website aren't
+              supported.
+            </p>
+          </details>
+          <details>
+            <summary>What happens when Facebook changes its design?</summary>
+            <p>
+              The most important part, sending you to Marketplace, depends on web addresses, which rarely change.
+              If Facebook moves something the extension can no longer hide, the tray tells you and offers a one-click
+              problem report.
+            </p>
+          </details>
+          <details>
+            <summary>Is this made by Facebook or Meta?</summary>
+            <p>No. MarketplaceOnly is an independent project and isn't affiliated with, endorsed by, or sponsored by Meta.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© 2026 MarketplaceOnly. Not affiliated with Meta.</span>
+        <nav aria-label="Footer">
+          <a href="privacy.html">Privacy</a>
+          <a href="https://github.com/jagie/MarketplaceOnly">Source code</a>
+          <a href="https://github.com/jagie/MarketplaceOnly/issues/new?template=problem.yml">Report a problem</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

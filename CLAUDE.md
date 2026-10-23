@@ -40,4 +40,5 @@ A Chrome + Firefox extension that makes Facebook behave like a standalone Market
 - No `any` (ESLint enforces it).
 - These must all work: `npm run test`, `npm run build`, `npm run dev:chrome`, `npm run dev:firefox`, `npm run zip`, plus `npm run typecheck` and `npm run lint`.
 - Update `CHANGELOG.md` with every change.
+- The website is in `site/` (plain HTML/CSS, nothing loaded from other servers) and deploys from `main` via GitHub Pages. `site/privacy.html` mirrors `PRIVACY.md`; change both together.
 - Before a release: bump the version in `package.json`, run `npm run zip`, and work through `docs/manual-test-checklist.md` in both browsers. Store copy lives in `docs/store/`.
